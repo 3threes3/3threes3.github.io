@@ -1,0 +1,204 @@
+
+
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/robotomono/v12/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_ROW4.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Ajustando ancho a la pantalla */
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Color y fuente de botones y texto */
+
+body,
+button {
+  background: #fff;
+  color: #000;
+  font-family: "Roboto Mono", monospace;
+}
+
+/* Color de texto al seleccionarlo */
+
+::selection {
+  background-color: #22bea9;
+  color: #000;
+}
+
+/* Elementos que cambian de color cuando el usuario mueve a modo oscuro a través del botón de arriba a la derecha */
+body.dark-mode,
+body.dark-mode button{
+  background: #000;
+  color: #fff;
+}
+
+/* Botones de selección de contenido */
+
+button {
+  width: 120px;
+  height: 30px;
+  border: 2px solid #96979c;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #96979c;
+  font-size: 1rem;
+  overflow: auto;
+  /* Tiempo de transición de un color iluminado a otro */
+  transition: 0.7s ease all;
+}
+
+/* Colorea los botones de contenido al poner el cursor encima y convierte el puntero en una manita */
+button:hover {
+  background: rgba(150, 151, 156, 0.1);
+  cursor: pointer;
+}
+
+/* Control de tamaño para el bloque de contenido y el círculo de fotos */
+.container {
+  margin: 50px auto;
+  padding: 5px;
+  max-width: 650px;
+}
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+}
+
+.header-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Controla el tamaño del header */
+.header-frame {
+  max-width: 350px;
+}
+
+/* Control del botón, sus posiciones y colores para mover de modo claro a oscuro */
+
+.dark-mode-toggler {
+  position: fixed;
+  top: 25px;
+  right: 20px;
+}
+.dark-mode-toggler label {
+  position: relative;
+}
+.dark-mode-toggler input[type="checkbox"] {
+  display: none;
+}
+
+/* Contenedor del botón */
+.dark-mode-toggler input[type="checkbox"] + label::before {
+  content: "";
+  display: block;
+  height: 26px;
+  width: 60px;
+  background: #fff;
+  border: 2px solid #96979c;
+  border-radius: 15px;
+  position: absolute;
+  top: 30px;
+  left: -65px;
+}
+/* Botón en sí (el circulo de dentro) */
+.dark-mode-toggler input[type="checkbox"] + label::after {
+  content: "";
+  display: block;
+  height: 20px;
+  width: 20px;
+  background: #96979c;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 33px;
+  left: -62px;
+  transition: all 0.4s ease-in;
+}
+.dark-mode-toggler input[type="checkbox"]:checked + label::before {
+  background: #000;
+  border: 2px solid #fff;
+}
+.dark-mode-toggler input[type="checkbox"]:checked + label::after {
+  left: -28px;
+  background: #000;
+  border: 2px solid #fff;
+}
+
+h1 {
+  font-weight: 400;
+  margin: 0;
+}
+
+h2 {
+  color: #96979c;
+  font-weight: 300;
+  margin: 0 0 0.5em 0;
+}
+
+/* No llega a verse nunca realmente por mi función de poner todo con colorines, pero igualmente lo añado por lo que pueda pasar */
+a {
+  color: #96979c;
+}
+a:hover {
+  font-weight: bold;
+}
+
+/* Con estas dos siguientes controlo el tamaño y la posición del círculo de imágenes */
+.img-frame {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 0 10px 0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.img-frame img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  height: 100%;
+}
+
+.links {
+  margin: 25px 0;
+}
+.links a:not(:last-child) {
+  padding: 0 16px 0 0;
+}
+
+.toggler {
+  margin: 25px 0;
+}
+
+/* No llega a usarse tampoco por la función de colorines una vez más */
+.toggler .show {
+  border-color: #eb4888;
+  color: #eb4888;
+}
+
+.bio {
+  display: none;
+  line-height: 24px;
+}
+.bio br {
+  display: block;
+  content: "";
+  height: 15px;
+}
+.bio.show {
+  display: block;
+}
