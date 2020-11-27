@@ -1,4 +1,7 @@
-let colors = ["#24d05a", "#eb4888", "#10a2f5", "#e9bc3f"];
+
+// morado, verde, amarillo, azul, naranja
+
+let colors = ["#9d78b0", "#87c492", "#d9bf71", "#8ab1e3", "#e6aa8c"];
 
 // Self invoking function, función autoinvocada? Es simplemente que se ejecuta automáticamente (y con ella, todas las que he 
 // metido dentro, vaya)
